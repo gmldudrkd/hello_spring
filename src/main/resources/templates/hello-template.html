@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Hello-template</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<!--p태그는 html파일을 정적으로 호출 할 경우 값을 노출 컨트롤러를 통할 경우 Text 안의 값으로 치환-->
+<p th:text="'hello. '+ ${name}">hello, empty</p>
+</body>
+</html>
