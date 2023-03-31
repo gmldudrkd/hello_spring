@@ -11,11 +11,9 @@ import java.util.Optional;
 
 //Service :: 비지니스 로직이 들어가는 부분, 가입등...
 
-@Service // spring이 올라올때 서비스를 등록
 public class MemberService {
     private MemberRepository memberRepository;
 
-    @Autowired
     public MemberService(MemberRepository memberRepository) {
         //MemberRepository 를 new 로 선언하는게 아닌 외부(테스트)에서 넣어서 사용할 수 있또록, 같은 역할인데 New 로 계속선언 시 문제생김
         //직접 선언 안하고 외부에서 넣어줌 > Defendency injection = DI
