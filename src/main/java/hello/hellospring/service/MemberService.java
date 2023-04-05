@@ -5,12 +5,14 @@ import hello.hellospring.repository.MemberRepository;
 import hello.hellospring.repository.MemoryMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 //Service :: 비지니스 로직이 들어가는 부분, 가입등...
 
+@Transactional
 public class MemberService {
     private MemberRepository memberRepository;
 
@@ -23,11 +25,11 @@ public class MemberService {
     public Long join(Member member){
         //회원가입
 
-        //Optional<Member> result = memberRepository.findByname(member.getName()); // cmd+opt+v > 리턴 자동완성
-        validateDuplicateMember(member); //중복회원 검증
-
+        validateDuplicateMember(member);
         memberRepository.save(member);
         return member.getId();
+
+        //Optional<Member> result = memberRepository.findByname(member.getName()); // cmd+opt+v > 리턴 자동완성
     }
 
     private void validateDuplicateMember(Member member) {
